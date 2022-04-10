@@ -1,0 +1,544 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>React Native + SF</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<section>
+				<a href="https://reactjs.org/docs/getting-started.html">
+					<img src="https://colorlib.com/wp/wp-content/uploads/sites/2/react-dev-tools-logo.jpg" alt="react-logo"
+						style="height: 150px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<a href="https://reactnative.dev/docs/getting-started">
+					<img src="https://crowdbotics.ghost.io/content/images/2020/03/React-Native-Featured-Image-2.png" alt="native-logo"
+						style="height: 150px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<a href="https://developer.salesforce.com/docs">
+					<img src="https://s0.rbk.ru/emitent_pics/images/39/24/b145fbfe306912ac639d427bb3dbf660.png" alt="salesforse-logo"
+						style="height: 150px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<h3>What is React Framework</h3>
+				<h3>React Native + SF</h3>
+				<p>
+					<small>Created by <a href="https://github.com/vovantais"> Vladimir Gedeiko <img
+								src='./assets/github-icon.png'
+								style="height: 30px; margin: 0 auto 4rem auto; background: transparent;"></a> </small>
+				</p>
+			</section>
+			<section>
+				<h2>React History</h2>
+				<p>
+					React was created by Jordan Valke, a software developer at Facebook. It was influenced by XHP, a
+					component
+					HTML
+					framework for PHP. React was first used in the Facebook news feed in 2011 and later in the Instagram feed
+					in
+					2012.
+				</p>
+				<img src="./assets/facebook.png" alt='facebook' width="500px" height="200px">
+			</section>
+			<section>
+				<h2>React</h2>
+				<p>
+					React is a JavaScript library that is used to build user interface.
+					React was originally intended for the web, for building websites, but later the React Native platform
+					appeared, which
+					was already intended for mobile devices.
+					React seems to be the perfect tool for building scalable web applications.
+				</p>
+			</section>
+
+			<!-- Example of nested vertical slides -->
+			<section>
+				<section>
+					<h2>Virtual DOM</h2>
+					<ul>
+						<li>The entire structure of a web page can be represented using the DOM (Document Object Model) - an
+							organization of html
+							elements that we can manipulate, change, delete or add new ones.</li>
+						<li>JavaScript is used to interact with the DOM.</li>
+						<li>The virtual DOM represents a lightweight copy of the regular DOM. And a distinctive feature of
+							React
+							is that this library works with the virtual DOM, not the usual one.</li>
+					</ul>
+					<br>
+				</section>
+				<section>
+					<a href="#/2">
+						<img class="r-frame" style="background: rgba(255,255,255,0.1);" src="./assets/virtyal.png"
+							alt="virtyal">
+					</a>
+				</section>
+			</section>
+			<section>
+				<h2>React features</h2>
+				<ul>
+					<li>we can create individual components and then easily transfer them from project to project.</li>
+					<li>we use JSX</li>
+					<li>JSX represents a combination of JavaScript and XML code and provides an easy and intuitive way to
+						define
+						visual
+						interface code.
+						also to compile the code we need the Babel compiler, which allows you to work with ES6 (ES2015) code.
+					</li>
+					<li>Project template engines are available.</li>
+				</ul>
+			</section>
+			<section>
+				<h2>Create React App</h2>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+									npx create-react-app my-app
+									cd my-app
+									npm start
+							</code></pre>
+			</section>
+
+			<section>
+				<h2>Start work</h2>
+				<ul style='font-size:32px;'>
+					<li>The ReactDOM.render () method is used to render an element on a web page, which takes two parameters.
+					</li>
+					<li>The first parameter represents the component that we want to display on the web page. In this case,
+						this
+						is a normal
+						title.</li>
+					<li>This method is passed the element to add to the web page. The second parameter is the element of the
+						web
+						page in which
+						the component from the first parameter will be rendered. In this case, this is the element.</li>
+					<pre data-id="code-animation">
+									<code class="hljs" data-trim data-line-numbers><div id="app"></div>
+								</code></pre>
+					<li>This is exactly the element where the title will be placed</li>
+				</ul>
+			</section>
+			<section data-auto-animate>
+				<h2 data-id="code-title">The easiest React example looks like this</h2>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+								ReactDOM.render(
+								<h1>Hello, world!</h1>,
+								document.getElementById('root')
+								);
+							</code></pre>
+			</section>
+
+			<section data-auto-animate>
+				<h2 data-id="code-title">React example</h2>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+								import React, { useState } from 'react';
+		
+								function Example() {
+								  const [count, setCount] = useState(0);
+		
+								  return (
+								    <div>
+								      <p>You clicked {count} times</p>
+								      <button onClick={() => setCount(count + 1)}>
+								        Click me
+								      </button>
+								    </div>
+								  );
+								}
+		
+								function SecondExample() {
+								  const [count, setCount] = useState(0);
+		
+								  return (
+								    <div>
+								      <p>You clicked {count} times</p>
+								      <button onClick={() => setCount(count + 1)}>
+								        Click me
+								      </button>
+								    </div>
+								  );
+								}
+							</script></code></pre>
+			</section>
+
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<h2>What is JSX?</h2>
+				<p>JSX is an XML / HTML syntax that is used to render HTML from JavaScript code. React converts JSX to
+					native
+					JavaScript
+					for the browser, and with the provided tools, you can convert HTML code of existing sites to JSX</p>
+				<div class="r-hstack justify-center">
+					<div data-id="box1"
+						style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;">J
+					</div>
+					<div data-id="box2"
+						style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;">S
+					</div>
+					<div data-id="box3"
+						style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;">X
+					</div>
+				</div>
+			</section>
+			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
+				<div class="r-hstack justify-center">
+					<div data-id="box1" data-auto-animate-delay="0"
+						style="background: rgb(94, 155, 155); width: 150px; height: 100px; margin: 10px; line-height:100px;">J
+					</div>
+					<div data-id="box2" data-auto-animate-delay="0.1"
+						style="background: rgb(177, 88, 177); width: 150px; height: 100px; margin: 10px; line-height:100px;">S
+					</div>
+					<div data-id="box3" data-auto-animate-delay="0.2"
+						style="background: rgb(122, 122, 60); width: 150px; height: 100px; margin: 10px; line-height:100px;">X
+					</div>
+				</div>
+				<p style="margin-top: 20px;"><img src="./assets/jsx.png" alt='JSX'></p>
+			</section>
+			<section>
+				<h2>What is JSX?</h2>
+				<p>
+					Using JSX makes it easier to write code because it is very similar to writing familiar HTML, but only from
+					within
+					JavaScript.
+					When combined with Node, this provides a very consistent workflow.
+				</p>
+				<p>
+					JSX is not required to use React - you can just use plain JS, but it is a very powerful tool that makes
+					it
+					easy to
+					define tree structures and assign attributes, so I highly recommend using it.
+				</p>
+			</section>
+
+
+			<section>
+				<h2>Components</h2>
+				<p>Components allow you to break your interface into independent parts that are easy to think about in
+					isolation. They can
+					be stacked together and used multiple times.</p>
+				<img src="./assets/components.png" alt='components' width="700px" height="300px">
+			</section>
+
+			<section>
+				<section id="fragments">
+					<h2>Components</h2>
+					<p>example</p>
+					<p class="fragment">
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+											function App() {
+												return (
+												<>
+													<Wrapper />
+												</>
+												)
+											}
+										</script></code></pre>
+					</p>
+				</section>
+			</section>
+
+			<section>
+				<img src="./assets/native.png" alt="native" style="display:block;">
+				<div
+					style="position: absolute;right:-220px !important;bottom
+							:80px; width: 30%; box-shadow: 0 1px 4px rgba(0,0,0,0.5), 0 5px 25px rgba(0,0,0,0.2); background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px; font-size: 20px; text-align: left;">
+					<h2>React Native</h2>
+					<p>React Native is a framework that builds a hierarchy of UI components to build the JavaScript code. It has a set of
+					components for both iOS and Android platforms to build a mobile application with native look and feel. ReactJS, on the
+					other hand, is an open source JavaScript library to create user interfaces. However, both React Native and ReactJS are
+					developed by Facebook using the same design principles, except designing interfaces.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2>Create React Native App</h2>
+				<a href="https://docs.expo.dev/">
+					<img src="https://miro.medium.com/max/762/1*zgbi_fJN2p-VMvCvwin8-g.png" alt="salesforse-logo"
+						style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+													npm install -g expo-cli
+													expo init AwesomeProject
+													cd AwesomeProject
+													npm start # you can also use: expo start
+											</code></pre>
+			</section>
+
+			<section>
+				<h3>Example project expo</h3>
+				<img src="./assets/expo.png" alt='expo' width="1200px" height="600px">
+			</section>
+
+
+			<section>
+				<h2>Create Connected App</h2>
+				<img src="./assets/conectedApp_1.png" alt='conectedApp' width="1100px" height="600px">
+			</section>
+
+			<section>
+					<p>Click on New Connected App button present on top right side of App Manager.</p>
+					<img src="./assets/newApp.png" alt='conectedApp' width="900px" height="500px">
+			</section>
+
+			<section>
+				<p>Create name, email and callBack URL your organization for example <span>https://login.salesforce.com/services/oauth2/success</span></p>
+				<img src="./assets/nameApp.png" alt='nameApp' width="900px" height="450px">
+			</section>
+
+			<section>
+				<p>Select Api, Web, refresh_token online_access</p>
+				<img src="./assets/apiApp.png" alt='apiApp' width="1000px" height="550px">
+			</section>
+
+			<section>
+				<p>Then wait 5-10 min when create Connected App, after copy Consumer Key and Callback URL.</p>
+				<img src="./assets/appKey.png" alt='appKey' width="1000px" height="500px">
+			</section>
+
+			<section>
+					<h4>Before proceeding, make sure you have the following setup done :</h4>
+			<ol>
+				<li>
+					<strong> Git.</strong> 
+				</li>
+				<li>
+					<strong> Node.js & npm.</strong>
+				</li>
+				<li>
+					<strong>Yarn.</strong> 
+				</li>
+				<li>
+					<strong>Typescript Compiler.</strong>
+				</li>
+				<li>
+					<strong>Forcereact.</strong>
+				</li>
+				<li>
+					<strong>Androind Stydio or Xcode.</strong>
+				</li>
+			</ol>
+			</section>
+
+			<section>
+				<p>Then need create the folder in redactor code and open terminal in this folder and enter command</p>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+					forcereact create
+				</code></pre>
+				<img src="./assets/createProject.png" alt='appKey' width="1000px" height="450px">
+			</section>
+			
+			<section>
+				<h5>Enter the following values at the prompts:</h5>
+				<ul>
+					<li>Application name: FirstReact</li>
+					<li>Application type: Press return or write react native</li>
+					<li>Package name: com.mytrail.react</li>
+					<li>Organization name: MyTrail, Inc.</li>
+					<li>Output directory: FirstReact</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Project structure</h3>
+				<img src="./assets/project.png" alt="project" width="450px" height="550px">
+			</section>
+
+			<section>
+				<p>In the Project view, open the android/app/src/main/res/values/bootconfig.xml file. 
+					Replace the values of "remoteAccessConsumerKey" and "oauthRedirectURI" with your own settings</p>
+				<img src="./assets/replaceKey.png" alt="replaceKey" width="1000px" height="420px">
+			</section>
+			
+			<section>
+				<p>From the Android Studio Welcome screen, or from the File | Open menu item, navigate to FirstReact/android/. Click OK.</p>
+				<img src="./assets/stydio1.png" alt="stydio1" width="1200px" height="480px">
+			</section>
+
+			<section>
+				<p>Then build the project - press the icon on the screen</p>
+				<img src="./assets/build.png" alt="build" width="1400px" height="570px">
+			</section>
+
+			<section>
+				<p>Then build the project in mobile app</p>
+				<img src="./assets/mobileApp.png" alt="mobileApp" width="1000px" height="580px">
+			</section>
+
+			<section>
+				<h4>Start the project</h4>
+				<p>
+				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers>
+				npm start
+				</code></pre>
+				</p>
+				<img src="./assets/startProject.png" alt="startProject" width="1200px" height="530px">
+			</section>
+
+			<section>
+				<p>Enter in SalesForse</p>
+				<img src="./assets/enterSF.png" alt="enterSF" width="600px" height="580px">
+			</section>
+
+			<section>
+				<p>Allow or enter your mobile phone</p>
+				<img src="./assets/allow.png" alt="allow" width="600px" height="580px">
+			</section>
+
+			<section>
+				<h3>oauth_approval_error_generic</h3>
+				<img src="./assets/OauthError.png" alt="OauthError" width="600px" height="580px">
+			</section>
+			
+			<section>
+				<img src="https://res.cloudinary.com/hy4kyit2a/f_auto,fl_lossy,q_70/learn/modules/mobile_sdk_react_native/mobilesdk_reactnative_create_app/images/d632d2ce3f8f469cbe98630651fe6077_react-template-ui.png" alt="OauthError" width="400px" height="680px">
+			</section>
+
+			<section data-auto-animate>
+				<h6>React native example</h6>
+				<pre>
+					<code class='code-example'>
+						<script type="text/template">
+							import React, { useState, useEffect } from 'react';
+							import CheckBox from '@react-native-community/checkbox';
+							import {oauth, net} from 'react-native-force';
+							import {
+								FlatList,
+								Button,
+								Image
+							} from 'react-native';
+							import {
+								Container,
+								Card,
+								ItemName,
+								ItemPrice
+								} from './Styles'
+							import {
+								QUERY_PRODUCTS,
+								ORDER,
+								FAILED_AUTHENTICATE,
+								CARS
+							} from '../Consts/Consts'
+
+
+							function Products() {
+								const [state, setState] = useState();
+								const [toggleCheckBox, setToggleCheckBox] = useState([]);
+
+									useEffect(() => {
+										oauth.getAuthCredentials(
+												() => fetchData(), // already logged in
+												() => {
+													oauth.authenticate(
+														() => fetchData(),
+														error => console.log(FAILED_AUTHENTICATE + error)
+													);
+												});
+									}, [fetchData]);
+
+									const fetchData =  () => { 
+										net.query(QUERY_PRODUCTS, response => setState(response.records));
+									};
+
+									const createAdress = (name) => {
+										let result = CARS.map(item => {
+											return item[name];
+										});
+										return result.join('');  
+									}
+
+									return (
+											<Container style={{height: '100%'}}>
+												<FlatList
+													data={state}
+													renderItem={({item, index}) => 
+													
+													<Card>
+														<CheckBox 
+															value={toggleCheckBox[index]}
+															onValueChange={newValue => setToggleCheckBox(oldValue => {
+																newValue = [...oldValue];
+																newValue[index] = !newValue[index] 
+																return newValue;
+															})}
+														/>
+														<ItemName>{item.Model__c}</ItemName> 
+														<Image
+															key={index}
+															style={{ width: '50%', height: '250%', marginTop: '-9%'  }}
+															resizeMode='contain'
+															source={{uri : createAdress(item.Model__c.toLowerCase())}} 
+														/>	
+														<ItemPrice>{`${item.Price__c} $`}</ItemPrice>
+														
+													</Card>
+													}
+													keyExtractor={(item, index) => 'key_' + index} 
+												/>
+
+												<Button
+													title={ORDER}
+													color="#841584"
+												/>
+											</Container>
+										);
+								};
+
+							export default Products;
+						</script>
+					</code>
+				</pre>
+			</section>
+
+			<section>
+				<img src="./assets/apps.png" alt="OauthError" width="400px" height="680px">
+			</section>
+
+			<section>
+				<video width="1200" height="800" controls="controls">
+					<source src="./assets/video.mp4" type='video/mp4;'>
+				</video>
+			</section>
+
+			<section>
+				<h5>Useful links</h5>
+				<ul>
+					<li><a href="https://medium.com/@amandeep.kaur01/understanding-salesforce-mobile-sdk-for-react-native-95fc3f314506"> Artical
+						medium</a></li>
+					<li><a
+						href="https://trailhead.salesforce.com/en/content/learn/modules/mobile_sdk_react_native/mobilesdk_reactnative_get_started">Trails
+						react Native</a></li>
+					<li><a href="https://trailhead.salesforce.com/content/learn/modules/mobile_sdk_introduction?trail_id=mobile_sdk_intro">Trails
+						Salesforce Mobile SDK Basics</a></li>
+					<li><a href="https://developer.salesforce.com/docs/atlas.en-us.mobile_sdk.meta/mobile_sdk/react_native_intro.htm">Mobile SDK Development Guide</a></li>
+					<li><a href="https://github.com/vovantais/React-Native-SF">Example code React-Native-SF</a></li>
+					<li><a href="https://github.com/vovantais/Presentation-React-Native-SF">Presentation-React-Native-SF</a></li>
+				</ul>
+			</section>
+
+			<section style="text-align: left;">
+				<h1>THE END</h1>
+				<h4>Thanks for attention</h4>
+			</section>
+		</div>
+	</div>
+
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script>
+	
+		Reveal.initialize({
+			hash: true,
+			plugins: [RevealMarkdown, RevealHighlight, RevealNotes]
+		});
+	</script>
+</body>
+
+</html>
