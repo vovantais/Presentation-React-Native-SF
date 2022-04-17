@@ -38,6 +38,20 @@
 								style="height: 30px; margin: 0 auto 4rem auto; background: transparent;"></a> </small>
 				</p>
 			</section>
+
+			<section>
+				<h2>Today we will discuss about</h2>
+				<ul>
+					<li class="fragment">What is React?</li>
+					<li class="fragment ">What is React Native?</li>
+					<li class="fragment ">React Native connection with Salesforse and development</li>
+				</ul>
+			</section>
+
+			<section>
+				<img src="https://colorlib.com/wp/wp-content/uploads/sites/2/react-dev-tools-logo.jpg">
+			</section>
+
 			<section>
 				<h2>React History</h2>
 				<p>
@@ -66,19 +80,17 @@
 				<section>
 					<h2>Virtual DOM</h2>
 					<ul>
-						<li>The entire structure of a web page can be represented using the DOM (Document Object Model) - an
-							organization of html
-							elements that we can manipulate, change, delete or add new ones.</li>
-						<li>JavaScript is used to interact with the DOM.</li>
-						<li>The virtual DOM represents a lightweight copy of the regular DOM. And a distinctive feature of
-							React
-							is that this library works with the virtual DOM, not the usual one.</li>
+						<li class="fragment">Instead of interacting with the DOM directly, we work with a lightweight copy of it. We can make changes to the copy
+						based on our needs, and then apply the changes to the real DOM.
+						This compares the DOM tree with its virtual copy, determines the difference, and starts redrawing what has been changed.
+						
+						This approach is faster because it doesn't include all the heavyweight parts of the real DOM.</li>
 					</ul>
 					<br>
 				</section>
 				<section>
 					<a href="#/2">
-						<img class="r-frame" style="background: rgba(255,255,255,0.1);" src="./assets/virtyal.png"
+						<img class="r-frame grow" style="background: rgba(255,255,255,0.1);" src="./assets/virtyal.png"
 							alt="virtyal">
 					</a>
 				</section>
@@ -135,45 +147,55 @@
 							</code></pre>
 			</section>
 
-			<section data-auto-animate>
-				<h2 data-id="code-title">React example</h2>
-				<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
-								import React, { useState } from 'react';
-		
-								function Example() {
-								  const [count, setCount] = useState(0);
-		
-								  return (
-								    <div>
-								      <p>You clicked {count} times</p>
-								      <button onClick={() => setCount(count + 1)}>
-								        Click me
-								      </button>
-								    </div>
-								  );
-								}
-		
-								function SecondExample() {
-								  const [count, setCount] = useState(0);
-		
-								  return (
-								    <div>
-								      <p>You clicked {count} times</p>
-								      <button onClick={() => setCount(count + 1)}>
-								        Click me
-								      </button>
-								    </div>
-								  );
-								}
-							</script></code></pre>
+			<section>
+				<section id="fragments">
+					<h2>Components</h2>
+					<p>example</p>
+					<p class="fragment">
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+															function App() {
+																return (
+																<>
+																	<Wrapper />
+																</>
+																)
+															}
+														</script></code></pre>
+					</p>
+				</section>
+				<br>
+				<section data-auto-animate>
+					<h2 data-id="code-title">React example</h2>
+					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
+									import React, { useState } from 'react';
+			
+									function Example() {
+									const [count, setCount] = useState(0);
+			
+									return (
+										<div>
+											<p>You clicked {count} times</p>
+											<button onClick={() => setCount(count + 1)}>
+											Click me
+											</button>
+										</div>
+									);
+									}
+								</script></code></pre>
+				</section>
+
 			</section>
 
 			<section data-auto-animate data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)">
-				<h2>What is JSX?</h2>
-				<p>JSX is an XML / HTML syntax that is used to render HTML from JavaScript code. React converts JSX to
-					native
-					JavaScript
-					for the browser, and with the provided tools, you can convert HTML code of existing sites to JSX</p>
+				<h6>What is JSX?</h6>
+				<ul>
+					<li class="fragment" data-fragment-index="1">React converts JSX to
+					native JavaScript for the browser, and with the provided tools, you can convert HTML code of existing sites to JSX</li>
+					<li class="fragment" data-fragment-index="0">Using JSX makes it easier to write code because it is very similar to writing familiar HTML, but only from
+					within JavaScript. When combined with Node, this provides a very consistent workflow.</li>
+					<li class="fragment" data-fragment-index="2">JSX is not required to use React - you can just use plain JS, but it is a very powerful tool that makes
+					it easy to define tree structures and assign attributes</li>
+				</ul>			
 				<div class="r-hstack justify-center">
 					<div data-id="box1"
 						style="background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;">J
@@ -200,22 +222,6 @@
 				</div>
 				<p style="margin-top: 20px;"><img src="./assets/jsx.png" alt='JSX'></p>
 			</section>
-			<section>
-				<h2>What is JSX?</h2>
-				<p>
-					Using JSX makes it easier to write code because it is very similar to writing familiar HTML, but only from
-					within
-					JavaScript.
-					When combined with Node, this provides a very consistent workflow.
-				</p>
-				<p>
-					JSX is not required to use React - you can just use plain JS, but it is a very powerful tool that makes
-					it
-					easy to
-					define tree structures and assign attributes, so I highly recommend using it.
-				</p>
-			</section>
-
 
 			<section>
 				<h2>Components</h2>
@@ -226,21 +232,7 @@
 			</section>
 
 			<section>
-				<section id="fragments">
-					<h2>Components</h2>
-					<p>example</p>
-					<p class="fragment">
-					<pre data-id="code-animation"><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24"><script type="text/template">
-											function App() {
-												return (
-												<>
-													<Wrapper />
-												</>
-												)
-											}
-										</script></code></pre>
-					</p>
-				</section>
+				<img src="https://crowdbotics.ghost.io/content/images/2020/03/React-Native-Featured-Image-2.png">
 			</section>
 
 			<section>
@@ -271,11 +263,15 @@
 			</section>
 
 			<section>
-				<h3>Example project expo</h3>
-				<img src="./assets/expo.png" alt='expo' width="1200px" height="600px">
+				<h3 style="position: absolute; right:-220px">Example project expo</h3>
+				<img src="./assets/expo.png" alt='expo' width="1200px" height="700px">
 			</section>
 
-
+			<section>
+				<img src="https://crowdbotics.ghost.io/content/images/2020/03/React-Native-Featured-Image-2.png" style="height: 250px; background: transparent;">
+				<img src="https://s0.rbk.ru/emitent_pics/images/39/24/b145fbfe306912ac639d427bb3dbf660.png" alt="salesforse-logo"
+					style="height: 250px; width: 450px; background: transparent;">
+			</section>
 			<section>
 				<h2>Create Connected App</h2>
 				<img src="./assets/conectedApp_1.png" alt='conectedApp' width="1100px" height="600px">
@@ -283,7 +279,7 @@
 
 			<section>
 					<p>Click on New Connected App button present on top right side of App Manager.</p>
-					<img src="./assets/newApp.png" alt='conectedApp' width="900px" height="500px">
+					<img src="./assets/newApp.png" alt='conectedApp' width="1400px" height="350px">
 			</section>
 
 			<section>
@@ -304,22 +300,19 @@
 			<section>
 					<h4>Before proceeding, make sure you have the following setup done :</h4>
 			<ol>
-				<li>
+				<li class="fragment">
 					<strong> Git.</strong> 
 				</li>
-				<li>
+				<li class="fragment">
 					<strong> Node.js & npm.</strong>
 				</li>
-				<li>
-					<strong>Yarn.</strong> 
+				<li class="fragment">
+					<strong>Typescript Compiler. npm install -g typescript</strong>
 				</li>
-				<li>
-					<strong>Typescript Compiler.</strong>
+				<li class="fragment">
+					<strong>Forcereact. npm install forcereact -g</strong>
 				</li>
-				<li>
-					<strong>Forcereact.</strong>
-				</li>
-				<li>
+				<li class="fragment">
 					<strong>Androind Stydio or Xcode.</strong>
 				</li>
 			</ol>
@@ -404,105 +397,154 @@
 				<pre>
 					<code class='code-example'>
 						<script type="text/template">
-							import React, { useState, useEffect } from 'react';
-							import CheckBox from '@react-native-community/checkbox';
-							import {oauth, net} from 'react-native-force';
-							import {
-								FlatList,
-								Button,
-								Image
-							} from 'react-native';
-							import {
-								Container,
-								Card,
-								ItemName,
-								ItemPrice
-								} from './Styles'
-							import {
-								QUERY_PRODUCTS,
-								ORDER,
-								FAILED_AUTHENTICATE,
-								CARS
-							} from '../Consts/Consts'
+import React, { useState, useEffect } from 'react';
+import CheckBox from '@react-native-community/checkbox';
+import {oauth, net} from 'react-native-force';
+import {
+   FlatList,
+	Button,
+	Image
+} from 'react-native';
+import {
+	Container,
+	Card,
+	ItemName,
+	ItemPrice
+	} from './Styles'
+import {
+	QUERY_PRODUCTS,
+	ORDER_BUTTON_TEXT,
+	FAILED_AUTHENTICATE,
+	CARS,
+	API_URI,
+	ORDER_BUTTON,
+	ORDER_SUCCESS,
+	ORDER_ERROR
+} from '../Consts/Consts'
+import axios from 'axios';
 
 
-							function Products() {
-								const [state, setState] = useState();
-								const [toggleCheckBox, setToggleCheckBox] = useState([]);
+let productIds = [];
 
-									useEffect(() => {
-										oauth.getAuthCredentials(
-												() => fetchData(), // already logged in
-												() => {
-													oauth.authenticate(
-														() => fetchData(),
-														error => console.log(FAILED_AUTHENTICATE + error)
-													);
-												});
-									}, [fetchData]);
+function Products() {
+	const [state, setState] = useState();
+	const [toggleCheckBox, setToggleCheckBox] = useState([]);
+	const [token, setToken] = useState('');
 
-									const fetchData =  () => { 
-										net.query(QUERY_PRODUCTS, response => setState(response.records));
-									};
+		useEffect(() => {
+			oauth.getAuthCredentials(
+					response => fetchData(response) , // already logged in
+					() => {
+						oauth.authenticate(
+							() => fetchData(),
+							error => console.log(FAILED_AUTHENTICATE + error)
+						);
+					});
+		}, [fetchData]);
 
-									const createAdress = (name) => {
-										let result = CARS.map(item => {
-											return item[name];
-										});
-										return result.join('');  
-									}
+		const fetchData = (response) => { 
+			setToken(response.accessToken);
+			net.query(QUERY_PRODUCTS, response => setState(response.records));
+		};
 
-									return (
-											<Container style={{height: '100%'}}>
-												<FlatList
-													data={state}
-													renderItem={({item, index}) => 
-													
-													<Card>
-														<CheckBox 
-															value={toggleCheckBox[index]}
-															onValueChange={newValue => setToggleCheckBox(oldValue => {
-																newValue = [...oldValue];
-																newValue[index] = !newValue[index] 
-																return newValue;
-															})}
-														/>
-														<ItemName>{item.Model__c}</ItemName> 
-														<Image
-															key={index}
-															style={{ width: '50%', height: '250%', marginTop: '-9%'  }}
-															resizeMode='contain'
-															source={{uri : createAdress(item.Model__c.toLowerCase())}} 
-														/>	
-														<ItemPrice>{`${item.Price__c} $`}</ItemPrice>
-														
-													</Card>
-													}
-													keyExtractor={(item, index) => 'key_' + index} 
-												/>
+		const createAdressForImg = (name) => {
+			let result = CARS.map(item => {
+				return item[name];
+			});
+			return result.join('');  
+		};
 
-												<Button
-													title={ORDER}
-													color="#841584"
-												/>
-											</Container>
-										);
-								};
+		const filterProductIds = (itemId) => {
+			if (!productIds.includes(itemId)) {
+				productIds.push(itemId);
+			} else {
+				productIds = productIds.filter(id => id != itemId);
+			}		
+		};
 
-							export default Products;
+		const productsFetch = (productIds) => {
+			axios.post(API_URI, { ...productIds }, {
+				headers: {
+						"Authorization": 'Bearer ' + token 
+					},
+			})
+			.then(response => {
+				if (response.status == 200) {
+					alert(ORDER_SUCCESS);
+					productIds = [];
+					setToggleCheckBox([]);
+				}
+			})
+			.catch(error => {
+				if (error) {
+					alert(ORDER_ERROR);
+					productIds = [];
+					setToggleCheckBox([]);
+				}
+			})
+		};
+
+		return (
+				<Container style={{height: '100%'}}>
+					<FlatList
+						data={state}
+						renderItem={({item, index}) => 
+						<Card>
+							<CheckBox 
+								value={toggleCheckBox[index]}
+								onValueChange={newValue => setToggleCheckBox(oldValue => {
+									newValue = [...oldValue];
+									newValue[index] = !newValue[index] 
+									filterProductIds(item.Id);
+									return newValue;
+								})}
+							/>
+							<ItemName>{item.Model__c}</ItemName> 
+							<Image
+								key={index}
+								style={{ width: '50%', height: '250%', marginTop: '-9%'  }}
+								source={{uri : createAdressForImg(item.Model__c.toLowerCase())}}  
+							/>	
+							<ItemPrice>{`${item.Price__c} $`}</ItemPrice>
+						</Card>
+						}
+						keyExtractor={(item, index) => 'key_' + index} 
+					/>
+
+					<Button
+						title={ORDER_BUTTON_TEXT}
+						color={ORDER_BUTTON}
+						onPress={() => productsFetch(productIds)}
+					/>
+				</Container> 
+			);
+	};
+
+export default Products;
 						</script>
 					</code>
 				</pre>
 			</section>
 
 			<section>
-				<img src="./assets/apps.png" alt="OauthError" width="400px" height="680px">
+				<video width="1200" height="800" controls="controls">
+					<source src="./assets/success.mp4" type='video/mp4;'>
+				</video>
 			</section>
 
 			<section>
 				<video width="1200" height="800" controls="controls">
-					<source src="./assets/video.mp4" type='video/mp4;'>
+						<source src="./assets/error.mp4" type='video/mp4;'>
 				</video>
+			</section>
+
+			<section>
+				<h3>Rest service Apex</h3>
+				<img src="./assets/rest.png" alt="rest"  >
+			</section>
+
+			<section>
+				<img src="./assets/cases.png" alt="cases" width="1800px" height="500px"> 
 			</section>
 
 			<section>
